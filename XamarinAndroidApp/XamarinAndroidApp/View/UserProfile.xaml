@@ -5,11 +5,11 @@
     <ContentPage.Content>
         <StackLayout Padding="10">
            
-            <ScrollView>
+            <!--<ScrollView>
                 <StackLayout>
 
                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="1">
-                        <!-- Place new controls here -->
+                        --><!-- Place new controls here --><!--
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1*"/>
@@ -28,7 +28,7 @@
                     </Grid>
 
                 </StackLayout>
-            </ScrollView>
+            </ScrollView>-->
             <StackLayout>
             <ListView  x:Name="LabTestData" HasUnevenRows="True" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" RefreshCommand="{Binding RefreshCommand}" RefreshControlColor="Red"  RowHeight="50">
 
