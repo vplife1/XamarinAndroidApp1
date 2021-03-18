@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinAndroidApp.UserProfile" Title="Lab Test Data">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+           
+            <ScrollView>
+                <StackLayout>
+
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="1">
+                        <!-- Place new controls here -->
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="9*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Entry x:Name="txtFileName" Margin="2" HorizontalOptions="FillAndExpand"
+               Grid.Row="0" Placeholder="Enter File Name"/>
+
+                        <Editor Placeholder="Enter Your Text" Grid.Row="1" HorizontalOptions="FillAndExpand"
+               x:Name="txtFileText" />
+
+                        <Button Text="Save" Margin="2" HorizontalOptions="FillAndExpand" Grid.Row="2"
+                x:Name="btnSave" Clicked="BtnSave_Clicked"/>
+                    </Grid>
+
+                </StackLayout>
+            </ScrollView>
+            <StackLayout>
+            <ListView  x:Name="LabTestData" HasUnevenRows="True" IsPullToRefreshEnabled="True" IsRefreshing="{Binding IsBusy, Mode=OneWay}" RefreshCommand="{Binding RefreshCommand}" RefreshControlColor="Red"  RowHeight="50">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Command="{Binding deleteData}"></MenuItem>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="4">
+                                <Label Text="{Binding TestId,StringFormat='TestId: {0:F0)}'}" TextColor="Black" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding TestName,StringFormat='TestName: {0:F0)}'}" TextColor="Blue"  FontSize="Medium"/>
+                                <Label Text="{Binding TestType,StringFormat='TestType: {0:F0)}'}" TextColor="Blue"  FontSize="Medium"/>
+                                <Label Text="{Binding ServiceSubGroupName,StringFormat='ServiceSubGroupName: {0:F0)}'}" TextColor="Black"  FontSize="Medium"/>
+                                <Label Text="{Binding Amount,StringFormat='Amount: {0:F0)}'}" TextColor="Blue"  FontSize="Medium"/>
+                                <Label Text="{Binding IsPopular,StringFormat='IsPopular: {0:F0)}'}" TextColor="Blue"  FontSize="Medium"/>
+                              
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
